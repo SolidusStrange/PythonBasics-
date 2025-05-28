@@ -1,0 +1,20 @@
+# Filtrar palabras por longitud.py - Última modificación:- 08/05/25 - 21:44:52
+# Invertir una cadena con un bucle.py - Última modificación:- 08/05/25 - 21:55:00
+# Mostrar números del 1 al 20, pero omita multiplos de 4.py - Última modificación:- 08/05/25 - 20:23:32
+#Buscar un número en una lista.py - Última modificación:- 08/05/25 - 20:02:45
+#Contar cuántos múltiplos de 3 hay en una lista.py - Última modificación:- 08/05/25 - 20:40:12
+#Mostrar solo los pares de una lista hasta impar.py - Última modificación:- 08/05/25 - 20:36:21
+#mostrar todos los números del 1 al 100 FizzBuzz.py - Última modificación:- 07/05/25 - 23:55:30
+#numero aleatorio y jugar con 3 intentos.py - Última modificación:- 07/05/25 - 23:37:38
+#Suma de números positivos.py - Última modificación:- 07/05/25 - 23:00:42
+#Sumar números hasta que el usuario escriba fin con try except.py - Última modificación:- 08/05/25 - 21:09:11
+Bucles anidados - Asteriscos 5x5.py - Última modificación:- 09/05/25 - 18:27:19
+CREAR TXT CON NOMBRES ARCHIVOS.py - Última modificación:- 09/05/25 - 22:41:34
+Cuadrado de numeros consecutivos.py - Última modificación:- 09/05/25 - 20:20:26
+documentostrabajados.txt - Última modificación:- 09/05/25 - 22:41:35
+Imprimir matriz de numeros.py - Última modificación:- 09/05/25 - 19:59:45
+Imprimir un patron de triangulo rectangulo creciente.py - Última modificación:- 09/05/25 - 20:12:49
+Imprimir una matriz de suma de indices.py - Última modificación:- 09/05/25 - 22:02:59
+Tablas de multiplicar del 1 al 10.py - Última modificación:- 09/05/25 - 19:48:07
+Triangulo de numeros.py - Última modificación:- 09/05/25 - 22:23:01
+Triangulo rectangulo invertido con asteriscos.py - Última modificación:- 09/05/25 - 20:47:57
