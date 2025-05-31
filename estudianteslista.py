@@ -26,6 +26,7 @@ while True #menu
       clave=input("Ingrese su contraseña")
 
       for e in range(len(usuarios)):
+        if usuarios[e] == nombre and contraseñas[e] ==
 
 
       while True:
