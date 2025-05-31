@@ -22,7 +22,12 @@ while True #menu
     if usuarios[0] is None and usuarios[1] is None and usuarios[2] is None:
       print("No existe ningún usuario registrado. Debe registrar un usuario primero.")
     else:
-      
+      nombre=input("Ingrese su nombre de usuario")
+      clave=input("Ingrese su contraseña")
+
+      for e in range(len(usuarios)):
+
+
       while True:
         print("---------------------")
         print("1. Realizar llamada")
