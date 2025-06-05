@@ -1,7 +1,10 @@
 #numero primo
 
+while True:
 cantidad = int(input("Ingrese la cantidad de números a verificar: "))
 contador = primos = no_primos = 0
+if (cantidad/round(cantidad))==1:
+  break
 
 while contador<cantidad:
     numero = int(input("Ingresa número: "))
