@@ -1,0 +1,26 @@
+my_list = []
+
+N = int(input())  # Número de comandos
+
+for _ in range(N):
+    command_line = input().split()
+    command = command_line[0]
+
+    if command == "insert":
+        index = int(command_line[1])
+        value = int(command_line[2])
+        my_list.insert(index, value)
+    elif command == "print":
+        print(my_list)
+    elif command == "remove":
+        value = int(command_line[1])
+        my_list.remove(value)
+    elif command == "append":
+        value = int(command_line[1])
+        my_list.append(value)
+    elif command == "sort":
+        my_list.sort()
+    elif command == "pop":
+        my_list.pop()
+    elif command == "reverse":
+        my_list.reverse()
