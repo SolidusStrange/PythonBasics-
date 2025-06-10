@@ -64,11 +64,11 @@ while True:
     elif opcion == 4:
         print(f"El promedio de los tres estudiantes es: {(prom1+prom2+prom3)/3}")
 
-    elif opcion == 5:
+    elif opcion == 6:
         print("Saliendo del programa")
         break
 
-    elif opcion == 6:
+    elif opcion == 5:
         maximo1 = max(estudiante1)
         estudiante1.remove(maximo1)
         print(estudiante1)
