@@ -38,17 +38,32 @@ while True:
             print(f"El promedio de notas es: {promedio}")
 
     elif opcion == 4:
-        # Aquí buscarás una nota por nombre
-        pass
+        nombre_buscado = input("Ingrese el nombre que desea buscar: ")
+        for nombre, nota in zip(nombres, notas):
+            if nombre_buscado == nota:
+                print(f"La nota de {nombre} es: {nota}.")
+                break
+            else:
+                print("Alumno no registrado.")
 
     elif opcion == 5:
-        # Aquí eliminarás un alumno por nombre
-        pass
-
+        alumno_eliminar = input("Ingrese el nombre del alumno que desea eliminar")
+        if alumno_eliminar in nombres:
+            indice = nombres.index(alumno_eliminar)
+            alumnos.pop(indice)
+            notas.pop(indice)
+            print(f"Alumno {alumno_eliminar} eliminado")
+        else:
+            print("Alumno no encontrado")
+            
     elif opcion == 6:
-        # Aquí usarás list comprehension para mostrar los aprobados
-        pass
-
+        print("Lista de aprobados: ")
+        for nota, nombre in notas, nombres:
+            if nota>=6:
+                print(f"Alumno {nombre} aprobado con nota {nota}. ")
+            else:
+                print(f"Alumno {nombre} reprobado con nota {nota}. ")
+        
     elif opcion == 7:
         print("¡Hasta luego!")
         break
