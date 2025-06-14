@@ -25,7 +25,7 @@ while True:
 
     elif opcion == 2:
         print("Lista de alumnos: ")
-        for nombre, nota in zip(nombres, notas): #zip une por indice ej nombre 0 le corresponde nota 0
+        for nombre, nota in zip(nombres, notas):  # zip une por indice ej nombre 0 le corresponde nota 0
             print(f"Alumno: {nombre} Nota: {nota}")
 
     elif opcion == 3:
@@ -34,36 +34,35 @@ while True:
         else:
             total_notas = sum(notas)
             cantidad = len(notas)
-            promedio = total_notas/cantidad
+            promedio = total_notas / cantidad
             print(f"El promedio de notas es: {promedio}")
 
     elif opcion == 4:
         nombre_buscado = input("Ingrese el nombre que desea buscar: ")
-        for nombre, nota in zip(nombres, notas):
-            if nombre_buscado == nota:
-                print(f"La nota de {nombre} es: {nota}.")
-                break
-            else:
-                print("Alumno no registrado.")
+        if nombre_buscado in nombres:
+            indice = nombres.index(nombre_buscado)
+            print(f"La nota de {nombre_buscado} es: {notas[indice]}")
+        else:
+            print("Alumno no registrado.")
 
     elif opcion == 5:
         alumno_eliminar = input("Ingrese el nombre del alumno que desea eliminar")
         if alumno_eliminar in nombres:
             indice = nombres.index(alumno_eliminar)
-            alumnos.pop(indice)
+            nombres.pop(indice)
             notas.pop(indice)
             print(f"Alumno {alumno_eliminar} eliminado")
         else:
             print("Alumno no encontrado")
-            
+
     elif opcion == 6:
         print("Lista de aprobados: ")
-        for nota, nombre in notas, nombres:
-            if nota>=6:
+        for nota, nombre in zip(notas, nombres):
+            if nota >= 6:
                 print(f"Alumno {nombre} aprobado con nota {nota}. ")
             else:
                 print(f"Alumno {nombre} reprobado con nota {nota}. ")
-        
+
     elif opcion == 7:
         print("¡Hasta luego!")
         break
