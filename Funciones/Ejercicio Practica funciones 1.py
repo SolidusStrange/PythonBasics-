@@ -2,7 +2,11 @@ libros = []
 prestados = []
 
 def agregar_libro():
-    pass
+    nombre = input("Ingrese el nombre del libro que desea añadir: ")
+    autor = input("Ingrese el nombre del autor: ")
+    publicacion = int(input("Ingrese la fecha de publicacion: "))
+    genero = input("Ingrese el genero del libro a añadir: ")
+
 
 def listar_libros():
     pass
