@@ -152,7 +152,7 @@ def iniciar_sesion():
             if ingreso["correo"] == usuario:
                 if ingreso["contrasena"] == contrasena:
                     print("Usuario ingresado correctamente.")
-                    return  # Éxito: salir de la función
+                    return ingreso  # Éxito: salir de la función
                 else:
                     print("Contraseña incorrecta. Intente nuevamente.")
                     intentos += 1
@@ -209,6 +209,9 @@ def listar_libros():
 
 
 def prestar_libro():
+
+usuario_actual = iniciar_sesion()
+
     titulo = input("Ingrese el nombre título del libro que desea pedir prestado").lower()
     encontrado = False
     for libro in libros:
@@ -218,6 +221,7 @@ def prestar_libro():
                 print("Libro prestado con éxito.")
                 prestados.append(libro)
                 libro["estado"] = "prestado"
+                libro["dueño"] = usuario_actual
                 break
             else:
                 print("El libro se encuentra prestado.")
