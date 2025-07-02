@@ -130,8 +130,6 @@ def registrar_usuario():
             print("Debe contener al menos un carácter especial. Intente nuevamente.")
             continue
 
-        break  #una vez se cumpla todo se rompe el break
-
         #agregar diccionario a la lista usuarios
         ficha = {
             "correo": correo,
@@ -140,6 +138,9 @@ def registrar_usuario():
         }
         usuarios.append(ficha)
         print("Usuario registrado con éxito.")
+
+        break  #una vez se cumpla todo se rompe el break
+
 def iniciar_sesion():
     intentos = 0
     while intentos < 3:
@@ -189,7 +190,8 @@ def agregar_libro():
         "autor": autor,
         "fecha_publicacion": fecha.date(),
         "genero": genero,
-        "estado": "disponible"
+        "estado": "disponible",
+        "dueño: None
         }
 
     libros.append(libro)
