@@ -142,34 +142,26 @@ def registrar_usuario():
         print("Usuario registrado con éxito.")
 def iniciar_sesion():
     intentos = 0
-    while intentos<4:
-        encontrado_usuario = False
-        encontrada_contrasena = False
-        usuario = input("Ingrese su correo electrónico.")
-        contrasena = input("Ingrese su contrasena")
+    while intentos < 3:
+        usuario = input("Ingrese su correo electrónico: ").strip()
+        contrasena = input("Ingrese su contraseña: ").strip()
+
+        # Buscar usuario por correo
         for ingreso in usuarios:
             if ingreso["correo"] == usuario:
-                encontrado_usuario = True
-                break
-
-            if ingreso["contrasena"] == contrasena:
-                encontrada_contrasena = True
-                break
-
-        if not encontrado_usuario:
-            print("Usuario incorrecto. Intente nuevamente.")
+                if ingreso["contrasena"] == contrasena:
+                    print("Usuario ingresado correctamente.")
+                    return  # Éxito: salir de la función
+                else:
+                    print("Contraseña incorrecta. Intente nuevamente.")
+                    intentos += 1
+                    break
+        else:
+            # Si no entra al if dentro del for: usuario no encontrado
+            print("Correo no registrado. Intente nuevamente.")
             intentos += 1
 
-        if not encontrada_contrasena:
-            print("Contraseña incorrecta. Intente nuevamente.")
-            intentos += 1
-
-        if intentos == 3:
-            print("Sin intentos disponibles.")
-
-        if encontrado_usuario and encontrada_contrasena:
-            print("Usuario ingresado correctamente.")
-            break
+    print("Sin intentos disponibles.")
 
 
 def agregar_libro():
