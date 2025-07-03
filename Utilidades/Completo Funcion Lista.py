@@ -70,6 +70,7 @@ libros = [
 ]
 prestados = []
 usuarios = []
+usuario_actual = None
 
 def registrar_usuario():
     while True:
@@ -191,7 +192,7 @@ def agregar_libro():
         "fecha_publicacion": fecha.date(),
         "genero": genero,
         "estado": "disponible",
-        "dueño: None
+        "dueño": None
         }
 
     libros.append(libro)
@@ -208,9 +209,7 @@ def listar_libros():
             print(f"{i}. {libro['nombre'].capitalize()} - {libro['autor'].capitalize()} ({libro['fecha_publicacion']}) - {libro['genero'].capitalize()}")
 
 
-def prestar_libro():
-
-usuario_actual = iniciar_sesion()
+def prestar_libro(usuario_actual):
 
     titulo = input("Ingrese el nombre título del libro que desea pedir prestado").lower()
     encontrado = False
@@ -221,7 +220,7 @@ usuario_actual = iniciar_sesion()
                 print("Libro prestado con éxito.")
                 prestados.append(libro)
                 libro["estado"] = "prestado"
-                libro["dueño"] = usuario_actual
+                libro["dueño"] = usuario_actual["correo"]
                 break
             else:
                 print("El libro se encuentra prestado.")
@@ -230,16 +229,21 @@ usuario_actual = iniciar_sesion()
     if not encontrado:
         print("El libro no se encuentra en la biblioteca. Revise si el título es el correcto")
 
-def devolver_libro():
+def devolver_libro(usuario_actual):
     titulo = input("Ingrese el libro a devolver: ").lower()
     encontrado = False
     for libro in libros:
         if libro["nombre"].lower() == titulo:
             encontrado = True
-            libro["estado"] = "disponible"
-            prestados.remove(libro)
-            print("Libro devuelto exitosamente.")
-            break
+            if libro["dueño"] == usuario_actual["correo"]:
+                libro["estado"] = "disponible"
+                libro["dueño"] = None #LIMPIAR EL DUEÑO CADA VEZ QUE DEVUELVA
+                prestados.remove(libro)
+                print("Libro devuelto exitosamente.")
+                break
+            else:
+                print("Libro no lo tiene el usuario actual.")
+                break
 
     if not encontrado:
         print("El libro a devolver no se encuentra en la biblioteca. Revise el título ingresado")
@@ -297,22 +301,37 @@ while True:
 
     if opcion == 1:
         registrar_usuario()
+
     elif opcion == 2:
-        iniciar_sesion()
+        usuario_actual = iniciar_sesion()
+
     elif opcion == 3:
         agregar_libro()
+
     elif opcion == 4:
         listar_libros()
+
     elif opcion == 5:
-        prestar_libro()
+        if usuario_actual:
+            prestar_libro(usuario_actual)
+        else:
+            print("Debe iniciar sesión primero.")
+
     elif opcion == 6:
-        devolver_libro()
+        if usuario_actual:
+            devolver_libro(usuario_actual)
+        else:
+            print("Debe iniciar sesión primero.")
+
     elif opcion == 7:
         buscar_libro()
+
     elif opcion == 8:
         eliminar_libro()
+
     elif opcion == 9:
         print("Saliendo del programa...")
         break
+
     else:
         print("Opción no válida.")
