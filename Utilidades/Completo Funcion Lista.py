@@ -216,11 +216,12 @@ def prestar_libro(usuario_actual):
     for libro in libros:
         if titulo == libro["nombre"].lower():
             encontrado = True
-            if libro["estado"] == "disponible":
-                print("Libro prestado con éxito.")
+            if libro["estado"] == "disponible" and libro not in prestados:
+                print(f"{usuario_actual['correo']} ha prestado el libro '{libro['nombre'].capitalize()}'.")
                 prestados.append(libro)
                 libro["estado"] = "prestado"
                 libro["dueño"] = usuario_actual["correo"]
+                usuario_actual["libros_prestados"].append(libro)
                 break
             else:
                 print("El libro se encuentra prestado.")
@@ -239,6 +240,7 @@ def devolver_libro(usuario_actual):
                 libro["estado"] = "disponible"
                 libro["dueño"] = None #LIMPIAR EL DUEÑO CADA VEZ QUE DEVUELVA
                 prestados.remove(libro)
+                usuario_actual["libros_prestados"].remove(libro)
                 print("Libro devuelto exitosamente.")
                 break
             else:
@@ -280,18 +282,38 @@ def eliminar_libro():
     if not encontrado:
         print("El libro a eliminar no se encuentra en la biblioteca")
 
+def mostrar_prestados():
+    if not usuario_actual:
+        print("Debe iniciar sesión primero.")
+        return
+
+    if not usuario_actual["libros_prestados"]:
+        print("No tienes libros prestados actualmente.")
+        return
+
+    print("Libros que has prestado:")
+    for i, libro in enumerate(usuario_actual["libros_prestados"],1):
+        print(f"{i}. {libro['nombre'].capitalize()} - {libro['autor'].capitalize()} ({libro['fecha_publicacion']}) - {libro['genero'].capitalize()}")
+
 # Menú principal
 while True:
     print("\nBiblioteca Comunitaria")
-    print("1. Registro de usuario")
-    print("2. Inicio de sesión")
-    print("3. Agregar libro")
-    print("4. Listar libros disponibles")
-    print("5. Prestar libro")
-    print("6. Devolver libro")
-    print("7. Buscar libro por título")
-    print("8. Eliminar libro")
-    print("9. Salir")
+
+    if usuario_actual:
+        print(f"Sesión activa: {usuario_actual['correo']}")
+        print("1. Agregar libro")
+        print("2. Listar libros disponibles")
+        print("3. Prestar libro")
+        print("4. Devolver libro")
+        print("5. Buscar libro por título")
+        print("6. Eliminar libro")
+        print("7. Mostrar libros prestados")
+        print("8. Cerrar sesión")
+        print("9. Salir")
+    else:
+        print("1. Registro de usuario")
+        print("2. Inicio de sesión")
+        print("3. Salir")
 
     try:
         opcion = int(input("Seleccione una opción: "))
@@ -299,39 +321,36 @@ while True:
         print("Ingrese un número válido.")
         continue
 
-    if opcion == 1:
-        registrar_usuario()
-
-    elif opcion == 2:
-        usuario_actual = iniciar_sesion()
-
-    elif opcion == 3:
-        agregar_libro()
-
-    elif opcion == 4:
-        listar_libros()
-
-    elif opcion == 5:
-        if usuario_actual:
+    if usuario_actual:
+        if opcion == 1:
+            agregar_libro()
+        elif opcion == 2:
+            listar_libros()
+        elif opcion == 3:
             prestar_libro(usuario_actual)
-        else:
-            print("Debe iniciar sesión primero.")
-
-    elif opcion == 6:
-        if usuario_actual:
+        elif opcion == 4:
             devolver_libro(usuario_actual)
+        elif opcion == 5:
+            buscar_libro()
+        elif opcion == 6:
+            eliminar_libro()
+        elif opcion == 7:
+            mostrar_prestados(usuario_actual)
+        elif opcion == 8:
+            print(f"Sesión cerrada para {usuario_actual['correo']}.")
+            usuario_actual = None
+        elif opcion == 9:
+            print("Saliendo del programa...")
+            break
         else:
-            print("Debe iniciar sesión primero.")
-
-    elif opcion == 7:
-        buscar_libro()
-
-    elif opcion == 8:
-        eliminar_libro()
-
-    elif opcion == 9:
-        print("Saliendo del programa...")
-        break
-
+            print("Opción no válida.")
     else:
-        print("Opción no válida.")
+        if opcion == 1:
+            registrar_usuario()
+        elif opcion == 2:
+            usuario_actual = iniciar_sesion()
+        elif opcion == 3:
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción no válida.")
