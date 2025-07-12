@@ -3,7 +3,7 @@ concierto = []
 compras_canceladas = []
 
 def comprar_entrada():
-    #VERIFICAR QUE NO ESTÉ REPETIDO EN LA LISTA#
+    #VERIFICAR QUE NO ESTÉ REPETIDO EN LA LISTA prueba 1
     while True:
         repetido = False
         nombre = input("Ingrese su nombre: ")
