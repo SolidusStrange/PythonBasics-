@@ -35,11 +35,13 @@ Un menú que tenga las siguientes opciones
 2. Búsqueda por precio.
 3. Actualizar precio.
 4. Salir.
+
 Donde:
 La opción 1 (Stock marca) debe entregar el stock de una marca particular ingresada por
 teclado. La marca ingresa puede estar escrita en mayúscula o minúsculas y debe funcionar
 de igual manera. Debe estar implementada mediante una función llamada
 stock_marca(marca) que recibe como parámetro la marca y no debe retornar nada.
+
 La opción 2 (Búsqueda por precio) debe entregar una lista de strings de todos los modelos
 que están dentro de un rango de precios ingresados por teclado y que tengan stock (stock
 distinto de cero). La lista debe tener el nombre de la marca junto al modelo con el formato
@@ -51,12 +53,14 @@ cualquier tipo de dato, por lo que debe hacer uso del procedimiento de manejo de
 de precios, el programa debe mostrar el mensaje: “No hay notebooks en ese rango de precios.” Debe estar implementada mediante una función llamada búsqueda_precio(p_min,
 p_max) que reciba el precio mínimo y precio máximo como parámetro y no debe retornar
 nada.
+
 La opción 3 (Actualizar precio) debe actualizar el precio de un modelo en particular en el
 diccionario “stock”. Debe estar implementado mediante una función llamada actualizar_precio(modelo, p) que reciba como parámetro un modelo y el precio nuevo. Si el modelo ingresado no existe, la función debe retornar “False” y si el modelo existe entonces la
 función debe retornar “True”. El código principal (main) debe recibir el valor de retorno y
 mostrar los mensajes "Precio actualizado!!" si se pudo realizar la actualización y "El modelo no existe!!" si no se pudo. Finalmente, el programa debe preguntar si desea actualizar
 otro precio de notebook. Si la respuesta es “si”, el proceso comienza nuevamente, si la
 respuesta es “no”, entonces el programa vuelve al menú principal.
+
 La opción 4 (salir), debe terminar el programa, mostrando por pantalla el mensaje: "Programa finalizado."
 Estando en el menú principal, si se ingresa cualquier otro valor como opción, entonces el
 programa debe mostrar el mensaje: "Debe seleccionar una opción válida!!”, y volver a
