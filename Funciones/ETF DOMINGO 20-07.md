@@ -94,5 +94,5 @@ Implementar una función que permita actualizar la cantidad en stock de un model
 
 ---
 
-Este documento es un acompañamiento para el archivo [`practicadomingoetf.py`.py`](practicadomingoetf.py)., donde se implementan todas estas funcionalidades.
+Este documento es un acompañamiento para el archivo [`practicadomingoetf.py`](practicadomingoetf.py)., donde se implementan todas estas funcionalidades.
 
