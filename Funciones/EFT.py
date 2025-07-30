@@ -78,7 +78,7 @@ while True:
                 p_min = int(input("Ingrese el valor del precio mínimo: \n"))
                 p_max = int(input("Ingrese el valor del precio máximo: \n"))
                 if p_min>p_max:
-                    print("El precio mínimo no puede ser mayor que el máximo")
+                    print("El precio mínimo no puede ser mayor que el máximo") 
                 else:
                     busqueda_precio(p_min, p_max)
                     break
