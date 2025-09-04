@@ -75,7 +75,9 @@ def registrar_estudiante():
     
 
 def mostrar_estudiantes():
-    pass  # Aquí irás escribiendo el código para mostrar todos los estudiantes
+    print("Lista de estudiantes: ")
+    for est in estudiantes:
+        print(f"{estudiantes["nombre"]}")
 
 def buscar_estudiante():
     pass  # Aquí irás escribiendo el código para buscar un estudiante por nombre
@@ -119,3 +121,4 @@ def menu():
 
 # Ejecutar programa
 menu()
+
