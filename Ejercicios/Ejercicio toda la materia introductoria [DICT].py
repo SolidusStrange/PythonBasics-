@@ -75,10 +75,19 @@ def registrar_estudiante():
     
 
 def mostrar_estudiantes():
-    print("Lista de estudiantes: ")
-    for est in estudiantes:
-        print(f"{estudiantes["nombre"]}")
-
+    if not estudiantes:
+        print("No hay estudiantes registrados.\n")
+    
+    print("\n=== Lista de estudiantes registrados ===")
+    for nombre, datos in estudiantes.items(): # itera sobre el nombre (clave) y los datos (diccionario).
+        print(f" Nombre: {nombre}") # nombre es la llave que tiene el diccionario a iterar
+        print(f" Edad: {datos['edad']}") # para acceder se usa la variable datos['edad'] 
+        print(f" Asignaturas: {', '.join(datos['asignaturas'])}") # convierte la lista de asignaturas en un string separado por comas
+        print(" Notas:")
+        for asignatura, nota in datos["notas"].items(): # Acá nos debería mostrar el par key-value. Que hay en datos["notas"], que sería "notas":notas_dict, desde ahí debería iterar mostrando lo que queremos
+            print(f"       {asignatura}: {nota}") # lo iterado antes mostra. Asignatura y su respectiva nota
+        print("-" * 40)   
+        
 def buscar_estudiante():
     pass  # Aquí irás escribiendo el código para buscar un estudiante por nombre
 
@@ -121,4 +130,5 @@ def menu():
 
 # Ejecutar programa
 menu()
+
 
